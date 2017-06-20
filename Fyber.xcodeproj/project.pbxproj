@@ -11,6 +11,7 @@
 		870852B51EF4FA02001C96AE /* ResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870852B41EF4FA02001C96AE /* ResponseViewController.m */; };
 		870852B81EF4FD77001C96AE /* HttpAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 870852B71EF4FD77001C96AE /* HttpAPIClient.m */; };
 		870852BA1EF500F6001C96AE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870852B91EF500F6001C96AE /* AdSupport.framework */; };
+		875808871EF91A5B008FB9A3 /* OfferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875808861EF91A5B008FB9A3 /* OfferView.m */; };
 		87737E431EF4BE1F0069CE3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87737E421EF4BE1F0069CE3E /* main.m */; };
 		87737E461EF4BE1F0069CE3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87737E451EF4BE1F0069CE3E /* AppDelegate.m */; };
 		87737E491EF4BE1F0069CE3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87737E481EF4BE1F0069CE3E /* ViewController.m */; };
@@ -37,6 +38,8 @@
 		870852B61EF4FD77001C96AE /* HttpAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpAPIClient.h; sourceTree = "<group>"; };
 		870852B71EF4FD77001C96AE /* HttpAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpAPIClient.m; sourceTree = "<group>"; };
 		870852B91EF500F6001C96AE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		875808851EF91A5B008FB9A3 /* OfferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferView.h; sourceTree = "<group>"; };
+		875808861EF91A5B008FB9A3 /* OfferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferView.m; sourceTree = "<group>"; };
 		87737E3E1EF4BE1F0069CE3E /* Fyber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87737E421EF4BE1F0069CE3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87737E441EF4BE1F0069CE3E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				870852B71EF4FD77001C96AE /* HttpAPIClient.m */,
 				870852B31EF4FA02001C96AE /* ResponseViewController.h */,
 				870852B41EF4FA02001C96AE /* ResponseViewController.m */,
+				875808851EF91A5B008FB9A3 /* OfferView.h */,
+				875808861EF91A5B008FB9A3 /* OfferView.m */,
 				87737E4A1EF4BE1F0069CE3E /* Main.storyboard */,
 				87737E4D1EF4BE1F0069CE3E /* Assets.xcassets */,
 				87737E4F1EF4BE1F0069CE3E /* LaunchScreen.storyboard */,
@@ -307,6 +312,7 @@
 				87737E491EF4BE1F0069CE3E /* ViewController.m in Sources */,
 				870852B51EF4FA02001C96AE /* ResponseViewController.m in Sources */,
 				87737E461EF4BE1F0069CE3E /* AppDelegate.m in Sources */,
+				875808871EF91A5B008FB9A3 /* OfferView.m in Sources */,
 				870852B81EF4FD77001C96AE /* HttpAPIClient.m in Sources */,
 				87737E431EF4BE1F0069CE3E /* main.m in Sources */,
 			);

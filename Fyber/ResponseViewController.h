@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResponseViewController : UIViewController
+@interface ResponseViewController : UIViewController <UIScrollViewDelegate>
 
 - (void)setResponseObject:(id)response;
 

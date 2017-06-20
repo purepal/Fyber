@@ -111,11 +111,15 @@
     strParam = [strParam stringByAppendingFormat:@"pub0=%@&", [_txtPub0 text]];             // pub0
     strParam = [strParam stringByAppendingFormat:@"timestamp=%@&", strTimestamp];           // timestamp
     strParam = [strParam stringByAppendingFormat:@"uid=%@", [_txtUID text]];                // uid
+#ifdef DEBUG
     NSLog(@"Param string: %@", strParam);
+#endif
     
     NSString *strParamWithAPIKey = [strParam stringByAppendingFormat:@"&%@", [_txtApiKey text]];   // attach API key for SHA1 hash
     NSString *strSHA1 = [self sha1:strParamWithAPIKey];
+#ifdef DEBUG
     NSLog(@"SHA1 string: %@", strSHA1);
+#endif
     
     [[HttpAPIClient sharedClient] GET:@"feed/v1/offers.json"
                            parameters:@{ @"appid": [_txtAppID text],
@@ -142,7 +146,9 @@
                               
                               } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
                                   
+#ifdef DEBUG
                                   NSLog(@"%@", error);
+#endif
                                   
                                   ResponseViewController *responseViewController = [[ResponseViewController alloc] init];
                                   [responseViewController setResponseObject:error];

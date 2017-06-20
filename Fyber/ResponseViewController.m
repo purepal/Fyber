@@ -7,6 +7,7 @@
 //
 
 #import "ResponseViewController.h"
+#import "OfferView.h"
 
 #define TAG_RESPONSE_VIEW               1000
 
@@ -30,12 +31,6 @@
     [btnBack setTitle:@"Back" forState:UIControlStateNormal];
     [btnBack addTarget:self action:@selector(actionBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnBack];
-    
-    CGRect rectTextView = CGRectMake(0.0, 50.0, self.view.frame.size.width, self.view.frame.size.height - 50.0);
-    UITextView *txtResponse = [[UITextView alloc] initWithFrame:rectTextView];
-    [txtResponse setEditable:NO];
-    [txtResponse setTag:TAG_RESPONSE_VIEW];
-    [self.view addSubview:txtResponse];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,26 +40,65 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UITextView *txtResponse = (UITextView *)[self.view viewWithTag:TAG_RESPONSE_VIEW];
-    
     if (errorObject)
     {
+        CGRect rectTextView = CGRectMake(0.0, 50.0, self.view.frame.size.width, self.view.frame.size.height - 50.0);
+        UITextView *txtResponse = [[UITextView alloc] initWithFrame:rectTextView];
+        [txtResponse setEditable:NO];
         [txtResponse setTextColor:[UIColor redColor]];
         [txtResponse setText:[NSString stringWithFormat:@"%@", errorObject]];
+        [self.view addSubview:txtResponse];
     }
     else
     {
         if (dicResponse)
         {
-            [txtResponse setText:[NSString stringWithFormat:@"%@", dicResponse]];
+            [self displayOffer];
         }
         else
         {
+            CGRect rectTextView = CGRectMake(0.0, 50.0, self.view.frame.size.width, self.view.frame.size.height - 50.0);
+            UITextView *txtResponse = [[UITextView alloc] initWithFrame:rectTextView];
+            [txtResponse setEditable:NO];
             [txtResponse setTextAlignment:NSTextAlignmentCenter];
             [txtResponse setTextColor:[UIColor redColor]];
             [txtResponse setFont:[UIFont systemFontOfSize:40]];
             [txtResponse setText:@"No offers"];
+            [self.view addSubview:txtResponse];
         }
+    }
+}
+
+
+#pragma mark -
+#pragma mark Display offer view method
+- (void)displayOffer
+{
+    NSArray *arrList = [dicResponse objectForKey:@"offers"];
+    NSInteger count = [arrList count];
+    
+#ifdef DEBUG
+    NSLog(@"item list: %@", arrList);
+#endif
+    
+    CGRect rectScrView = CGRectMake(0.0, 50.0, self.view.frame.size.width, self.view.frame.size.height - 50.0);
+    UIScrollView *scrView = [[UIScrollView alloc] initWithFrame:rectScrView];
+    [scrView setDelegate:self];
+    [scrView setPagingEnabled:YES];
+    [scrView setContentSize:CGSizeMake(self.view.frame.size.width*count, rectScrView.size.height)];
+    [self.view addSubview:scrView];
+    
+    int pageNo = 0;
+    for (NSDictionary *dicItem in arrList)
+    {
+        CGRect rect = CGRectZero;
+        rect.origin = CGPointMake(rectScrView.size.width*pageNo, 0);
+        rect.size = rectScrView.size;
+        OfferView *offerView = [[OfferView alloc] initWithFrame:rect];
+        [offerView setData:dicItem withPageNo:pageNo];
+        [scrView addSubview:offerView];
+        
+        pageNo++;
     }
 }
 
